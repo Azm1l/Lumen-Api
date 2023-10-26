@@ -42,7 +42,7 @@ class ConsigneeController extends Controller
             return response()->json([
                 'success' => true,
                 'message' => 'Data Found',
-                'data' => $data
+                'data' => $data->consignee_id
             ], 200);
         } else {
             return response()->json([
