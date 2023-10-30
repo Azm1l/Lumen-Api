@@ -45,4 +45,11 @@ $app->group(['prefix' => 'masterlocation'], function () use ($app) {
     $app->post('/', 'MasterLocationController@addData');
 });
 
+$app->group(['prefix' => 'checkin'], function () use ($app) {;
+    $app->get('/{id}', 'CheckInController@singleData');
+    $app->post('/', 'CheckInController@addData');
+});
+
+$app->post('/updatebulk', 'UpdateBulkController@addData');
+
 $app->get('/todo', 'TodoController@index');

@@ -13,6 +13,7 @@ class ConsigneeController extends Controller
 
     public function addData(Request $request)
     {
+
         $data = new ModelConsignee();
         $data->consignee_id = $request->input('consignee_id');
         $data->consignee_name = $request->input('consignee_name');
