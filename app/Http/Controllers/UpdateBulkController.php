@@ -18,12 +18,12 @@ class UpdateBulkController extends Controller
         try {
 
             $this->validate($request, [
-                'econnote_form' => 'required|string|max:11|min:10',
-                'econnote_to' => 'required|string|max:11|min:10',
-                'status' => 'required|integer',
-                'transaksi' => 'required|date',
+                'econnote_form' => 'required|string|max:20|min:10',
+                'econnote_to' => 'required|string|max:20|min:10',
+                'mst_status_id' => 'required|integer',
+                'update_status_time' => 'required|date',
                 'remarks' => 'required|string|max:100|min:3',
-                'status_by' => 'required|string|max:10|min:3',
+                'update_status_by' => 'required|string|max:10|min:3',
             ]);
 
             $p_econnote_form = $request->input('econnote_form');
