@@ -28,10 +28,10 @@ class UpdateBulkController extends Controller
 
             $p_econnote_form = $request->input('econnote_form');
             $p_econnote_to = $request->input('econnote_to');
-            $p_status = $request->input('status');
-            $p_transaksi = $request->input('transaksi');
+            $p_status = $request->input('mst_status_id');
+            $p_transaksi = $request->input('update_status_time');
             $p_remarks = $request->input('remarks');
-            $p_status_by = $request->input('status_by');
+            $p_status_by = $request->input('update_status_by');
 
             $result = DB::select('call update_bulk_status(?,?,?,?,?,?)', array($p_econnote_form, $p_econnote_to, $p_status, $p_transaksi, $p_remarks, $p_status_by));
             return response()->json([
