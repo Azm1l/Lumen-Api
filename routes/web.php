@@ -53,5 +53,6 @@ $app->group(['prefix' => 'checkin'], function () use ($app) {;
 */
 
 $app->post('/updatebulk', 'UpdateBulkController@addData');
+$app->get('/masterstatus', 'MasterStatusController@index');
 
 $app->get('/todo', 'TodoController@index');
