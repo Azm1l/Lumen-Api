@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class ModelCheckin extends Model
 {
     public $timestamps = true;
-    protected $table = 'tbl_checkin';
+    protected $table = 'checkin';
     protected $primaryKey = 'id';
 }

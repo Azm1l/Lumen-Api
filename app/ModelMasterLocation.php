@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ModelMasterLocation extends Model
 {
     public $timestamps = true;
-    protected $table = 'tbl_master_location';
-    protected $fillable = ['location_name', 'location_address', 'location_latitude', 'location_longitude'];
-    protected $primaryKey = 'location_id';
+    protected $table = 'locations';
+    protected $fillable = ['name', 'address', 'latitude', 'longitude', 'radius'];
+    protected $primaryKey = 'id';
 }

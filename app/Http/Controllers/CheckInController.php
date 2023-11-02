@@ -13,9 +13,15 @@ class CheckInController extends Controller
 
     public function addData(Request $request)
     {
+        $this->validate($request, [
+            'userId' => 'required|integer',
+            'locationId' => 'required|integer',
+            'reason' => 'required|string',
+        ]);
+
         $data = new ModelCheckIn();
-        $data->checkin_user_id = $request->input('checkin_user_id');
-        $data->checkin_location_id = $request->input('checkin_user_id');
+        $data->user_id = $request->input('userId');
+        $data->location_id = $request->input('locationId');
         $data->reason = $request->input('reason');
         $data->save();
         return response()->json([
@@ -26,7 +32,7 @@ class CheckInController extends Controller
 
     public function singleData($id)
     {
-        $data = ModelCheckIn::where('checkin_user_id', $id)->get();
+        $data = ModelCheckIn::where('user_id', $id)->get();
 
         if (count($data) > 0) {
             return response()->json([

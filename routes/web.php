@@ -51,6 +51,11 @@ $app->group(['prefix' => 'checkin'], function () use ($app) {;
     $app->post('/', 'CheckInController@addData');
 });
 
+$app->group(['prefix' => 'checkout'], function () use ($app) {;
+    $app->get('/{id}', 'CheckOutController@singleData');
+    $app->post('/', 'CheckOutController@addData');
+});
+
 
 $app->post('/updatebulk', 'UpdateBulkController@addData');
 $app->get('/masterstatus', 'MasterStatusController@index');

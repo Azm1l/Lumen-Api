@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class Checkin extends Migration
+class CreateLocationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class Checkin extends Migration
      */
     public function up()
     {
-        Schema::create('checkin', function (Blueprint $table) {
+        Schema::create('locations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            $table->integer('location_id');
-            $table->timestamp('checkin_time')->useCurrent();
-            $table->string('reason')->nullable();
+            $table->string('name');
+            $table->string('address')->nullable();
+            $table->decimal('latitude', 10, 8);
+            $table->decimal('longitude', 11, 8);
+            $table->integer('radius')->nullable(); // Added radius field
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class Checkin extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('checkin');
+        Schema::dropIfExists('locations');
     }
 }

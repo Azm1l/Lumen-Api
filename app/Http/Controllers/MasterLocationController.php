@@ -22,7 +22,7 @@ class MasterLocationController extends Controller
 
     public function singleData($id)
     {
-        $data = ModelMasterLocation::where('location_id', $id)->get();
+        $data = ModelMasterLocation::where('id', $id)->get();
 
         if (count($data) > 0) {
             return response()->json([
@@ -39,12 +39,20 @@ class MasterLocationController extends Controller
 
     public function addData(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required|string|min:3',
+            'address' => 'required|string|min:3',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
+            'radius' => 'required|integer',
+        ]);
+
         $data = new ModelMasterLocation();
-        $data->location_name = $request->input('location_name');
-        $data->location_address = $request->input('location_address');
-        $data->location_latitude = $request->input('location_latitude');
-        $data->location_longitude = $request->input('location_longitude');
-        $data->location_description = $request->input('location_description');
+        $data->name = $request->input('name');
+        $data->address = $request->input('address');
+        $data->latitude = $request->input('latitude');
+        $data->longitude = $request->input('longitude');
+        $data->radius = $request->input('radius');
         $data->save();
         return response()->json([
             'success' => true,
